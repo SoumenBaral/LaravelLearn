@@ -20,3 +20,5 @@ $squares = array_map(function($number){
     return $number*$number;
 },$numbers);
 print_r($squares);
+
+# ForEach is more uses able for php 

@@ -1,4 +1,5 @@
 <?php
+// Trait is use for Inherit multiple Inheritance.
 trait message1{
     public function msg1(){
         echo "OOP is Fun!";

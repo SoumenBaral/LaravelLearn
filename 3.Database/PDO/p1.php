@@ -24,7 +24,27 @@ try{
         ['name' => 'Diana', 'email' => 'diana@example.com', 'gender' => 'Female'],
         ['name' => 'Eve', 'email' => 'eve@example.com', 'gender' => 'Female']
 ];
-    $pdo->exec("INSERT INTO users (name, email, gender) VALUES ('Alice', 'alice@example.com', 'Female')");
+    // $pdo->exec("INSERT INTO users (name, email, gender) VALUES ('Alice', 'alice@example.com', 'Female')");
+    
+    // Positional prepared statement 
+
+
+    $name = "Frank";
+    $email = "frank@example.com";
+    $gender = "Male";
+
+    $name2 = "Drank";
+    $email2 = "Drank@example.com";
+    $gender2 = "Male";
+
+    // $statement = $pdo->prepare("INSERT INTO users (name, email, gender) VALUES (?, ?, ?)");
+    // $statement->execute([$name, $email, $gender]);
+    // $statement->execute([$name2, $email2, $gender2]);
+
+    //Placeholder prepared statement
+    $statement = $pdo->prepare("INSERT INTO users (name, email,gender) VALUES(:name,:email,:gender)");
+    $statement->execute([':name'=>$name, ':email'=>$email, ':gender'=>$gender]);
+    $statement->execute([':name'=>$name2, ':email'=>$email2, ':gender'=>$gender2]);
 }
 catch(PDOException $e){
     echo "Connection failed: " . $e->getMessage();

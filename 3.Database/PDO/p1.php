@@ -29,13 +29,13 @@ try{
     // Positional prepared statement 
 
 
-    $name = "Frank";
-    $email = "frank@example.com";
-    $gender = "Male";
+    // $name = "Frank";
+    // $email = "frank@example.com";
+    // $gender = "Male";
 
-    $name2 = "Drank";
-    $email2 = "Drank@example.com";
-    $gender2 = "Male";
+    // $name2 = "Drank";
+    // $email2 = "Drank@example.com";
+    // $gender2 = "Male";
 
     // $statement = $pdo->prepare("INSERT INTO users (name, email, gender) VALUES (?, ?, ?)");
     // $statement->execute([$name, $email, $gender]);
@@ -43,8 +43,11 @@ try{
 
     //Placeholder prepared statement
     $statement = $pdo->prepare("INSERT INTO users (name, email,gender) VALUES(:name,:email,:gender)");
-    $statement->execute([':name'=>$name, ':email'=>$email, ':gender'=>$gender]);
-    $statement->execute([':name'=>$name2, ':email'=>$email2, ':gender'=>$gender2]);
+    // $statement->execute([':name'=>$name, ':email'=>$email, ':gender'=>$gender]);
+    // $statement->execute([':name'=>$name2, ':email'=>$email2, ':gender'=>$gender2]);
+    foreach($users as $user){
+        $statement->execute([':name'=>$user['name'], ':email'=>$user['email'], ':gender'=>$user['gender']]);
+    }
 }
 catch(PDOException $e){
     echo "Connection failed: " . $e->getMessage();

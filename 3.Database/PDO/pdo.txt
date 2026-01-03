@@ -1,0 +1,6 @@
+PDO --> portable Data object 
+
+Advantage:
+1. Can use any kind of data base 
+2. Prevent SQL injection from Hacker 
+3. one code use anywhere 

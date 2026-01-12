@@ -8,6 +8,27 @@ class HomeController extends Controller
 {
     function index(Request $request)
     {
-        return response("Hello World");
+        $skills = ['PHP','Laravel','JavaScript','VueJS','HTML','CSS'];
+//        return view('home.index',['skills'=>$skills]);
+          return view('home.index',compact('skills'));
+    }
+
+    function demo(Request $request)
+    {
+        $context = [
+            'name'=>"Soumen",
+            'age'=>30,
+            'city'=>"Kolkata",
+            'planets'=>['Earth','Mars','Jupiter','Saturn','Jupiter']
+        ];
+        return view('home.demo',$context); // ['name'=>"Soumen",'age'=>30] this is Called Context Data.
+    }
+    function contact(Request $request)
+    {
+        return view('home.contact');
+    }
+    function about(Request $request)
+    {
+        return view('home.about');
     }
 }

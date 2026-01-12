@@ -2,31 +2,19 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
 use function Pest\Laravel\post;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/',[HomeController::class,'show'])->name('home');
 
 Route::get('/about', function () {
     return view('about');
 })->name('about');
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/contact', [ContactController::class,'show'])->name('contact');
 
-//Route:post('/submit-form', function (Request $request) {
-//    var_dump($request->all());
-//});
-Route::post('/submit-form', function (Request $request) {
-    // Process form data here
-    Log::info('Form submitted'.json_encode($request->all()));
-    // Save to Contact DataBase
-    //Send Email Notification
 
-    // For demonstration, we'll just return the data as JSON
-    return redirect('/contact');
-})->name('submit-form');
+Route::post('/submit-form', [ContactController::class,'store'])->name('submit-form');
 
 Route::get('/services', function () {
     return view('services');
@@ -42,4 +30,21 @@ Route::get('/blog/{slug}', function ($slug) {
         'content' => 'This is the content of the blog post with : ' . $slug,
 
     ]);
+});
+
+Route::get('/hello', function (Request $request) {
+    return view('hello',[
+        'greeting' => $request->get('greeting','World')
+    ]);
+});
+
+
+//Route and Controller Reation
+
+//Route::HttpMethodName('URI', [ControllerClass::class, 'method'])->name('route-name');
+// Httlp Methods: get, post, put, patch, delete, options
+
+// 404 Page
+Route::fallback(function(){
+    return view('error');
 });

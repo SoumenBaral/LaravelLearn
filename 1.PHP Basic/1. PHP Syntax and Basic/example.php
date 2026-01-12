@@ -5,9 +5,7 @@ $restInch = $height%12;
 $heightInFeet = ($height-$restInch )/ 12;
 $heightInCm = $height * 2.54;
 echo "Height in cm: {$heightInCm} and Inch {$restInch}\n";
-echo "Height in feet: {$heightInFeet} and inch {$restInch}\n"; ;
-
-
+echo "Height in feet: {$heightInFeet} and inch {$restInch}\n";
 //Fahenheit to Celsius
 $fahenheit = 98.6;
 $celsius = ($fahenheit - 32) * 5/9;

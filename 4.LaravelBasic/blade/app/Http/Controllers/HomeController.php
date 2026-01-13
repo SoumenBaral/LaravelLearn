@@ -25,7 +25,13 @@ class HomeController extends Controller
     }
     function contact(Request $request)
     {
-        return view('home.contact');
+        $address =[
+            'street'=>"123 Main St",
+            'city'=>"Kolkata",
+            'state'=>"WB",
+            'zip'=>"700001"
+        ];
+        return view('home.contact',['address'=>$address]);
     }
     function about(Request $request)
     {

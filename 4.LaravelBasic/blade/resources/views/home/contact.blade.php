@@ -8,6 +8,10 @@
     <h2 class="text-2xl font-semibold mb-2">{{$name ?? 'Contact'}}</h2>
     <p class="text-base">Explore our features and services. We're glad to have you here!</p>
 </main>
+    <script>
+        const  address = @json($address);
+        console.log(address);
+    </script>
 @endsection
 @section("title")
     - Contact

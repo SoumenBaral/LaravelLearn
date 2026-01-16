@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -72,9 +73,28 @@ class DemoController extends Controller
 
             
             // ]);
-            return DB::table('categories')->where('id','=',10)->update([
-                'name'=>'hojoboroloos'
-            ]);
+            // return DB::table('categories')->where('id','=',10)->update([
+            //     'name'=>'hojoboroloos'
+            // ]);
+
+        
+        try{
+            DB::transaction(function(){
+
+         
+                DB::table('categories')->insert(['name'=>'Shujan','description'=>'Shujan is a good man . Always help the people ']);
+                DB::table('products')->insert(['name'=>'Shukchan','description'=>'Shukchan is a good man . Always help the people ']);
+                DB::table('products')->where('id','=',1)->delete();
+            },10);
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+            }
+
+            
+        
+
+        
 
 
 

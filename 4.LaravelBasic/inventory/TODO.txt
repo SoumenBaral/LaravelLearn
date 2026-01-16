@@ -11,4 +11,26 @@
     - sum()
 
 
+6. Query Builder Select Clause
 
+    - Selecting Specific Columns
+    - Selecting Distinct Values
+
+
+7. Ordering Results
+
+    - Ordering by ascending
+    - Ordering by descending
+    - latest()
+    - oldest()
+    - limit()
+    - skip()
+    - random()
+
+
+
+
+8. Query Builder Pagination
+
+    - simplePagination()
+    - paginate()

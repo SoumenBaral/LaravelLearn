@@ -1,0 +1,14 @@
+1. What is Query Builder
+2. Retrieving All Rows  -->get()
+3. Retrieving Single Row-->find(id)
+4. Retrieving List of Column Values --> pluck("name ")
+
+5. Query Builder Aggregate Functions
+    - count()
+    - max()
+    - min()
+    - avg()
+    - sum()
+
+
+

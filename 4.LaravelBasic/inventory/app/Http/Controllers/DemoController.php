@@ -79,13 +79,17 @@ class DemoController extends Controller
 
         
         try{
-            DB::transaction(function(){
+            //Start Database Session-->Begin Transaction
+            //Success ->Commit 
+            //Fail ->Rollback
+            //Timeout->Rollback
+             DB::transaction(function(){
 
-         
                 DB::table('categories')->insert(['name'=>'Shujan','description'=>'Shujan is a good man . Always help the people ']);
                 DB::table('products')->insert(['name'=>'Shukchan','description'=>'Shukchan is a good man . Always help the people ']);
                 DB::table('products')->where('id','=',1)->delete();
-            },10);
+          
+                },10);
             }
             catch(Exception $e){
                 echo $e->getMessage();

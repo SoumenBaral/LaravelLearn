@@ -41,4 +41,13 @@
     - Left Join 
     - Right Join
     -Cross Join
-     
+
+10. Data Deletion 
+
+    -delete()
+
+11. Data Insertion
+    -Insert
+
+12. Data Updating
+    -update()

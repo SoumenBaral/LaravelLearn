@@ -49,7 +49,36 @@ class DemoController extends Controller
 
             // return DB::table('products')->join('categories','products.category_id','categories.id')->get(); //
             // return DB::table('products')->leftJoin('categories','products.category_id','categories.id')->get();
-             return DB::table('products')->rightJoin('categories','products.category_id','categories.id')->get();
+            //  return DB::table('products')->rightJoin('categories','products.category_id','categories.id')->get();
+            // return DB::table('products')->crossJoin('categories','products.category_id','categories.id')->get();
+
+
+            // Delete Date from database
+
+            // return DB::table('categories')->where('id','=',2)->delete();
+
+            // return DB::table('categories')->insert([
+            //     'name'=>'Soumen',
+            //     'description'=>'Soumen is a good man . Always help the people '
+            // ]);
+
+            //  return DB::table('categories')->insert([
+            //     ['name'=>'Shuvo',
+            //     'description'=>'Shuvo is a good man . Always help the people '],
+            //     ['name'=>'shakib',
+            //     'description'=>'shakib is a good man . Always help the people '],
+            //     ['name'=>'jhone doe',
+            //     'description'=>'jhone doe is a good man . Always help the people' ],
+
+            
+            // ]);
+            return DB::table('categories')->where('id','=',10)->update([
+                'name'=>'hojoboroloos'
+            ]);
+
+
+
+
 
 
         

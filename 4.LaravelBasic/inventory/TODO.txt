@@ -34,3 +34,11 @@
 
     - simplePagination()
     - paginate()
+
+9. Query Builder Joins
+
+    - inner Join ->join()
+    - Left Join 
+    - Right Join
+    -Cross Join
+     

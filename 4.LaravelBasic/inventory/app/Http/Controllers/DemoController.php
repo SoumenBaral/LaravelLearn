@@ -40,12 +40,16 @@ class DemoController extends Controller
             //-------------------
 
             // return DB::table('products')->simplePaginate(4);
-            return DB::table('products')->paginate(
-                $perPage =5,
-                $columns =['*'],
-                $pageName ='products'
+            // return DB::table('products')->paginate(
+            //     $perPage =5,
+            //     $columns =['*'],//['name','price']],
+            //     $pageName ='products'
 
-            );
+            // );
+
+            // return DB::table('products')->join('categories','products.category_id','categories.id')->get(); //
+            // return DB::table('products')->leftJoin('categories','products.category_id','categories.id')->get();
+             return DB::table('products')->rightJoin('categories','products.category_id','categories.id')->get();
 
 
         

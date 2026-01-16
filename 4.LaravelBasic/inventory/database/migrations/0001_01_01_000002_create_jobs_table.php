@@ -55,3 +55,6 @@ return new class extends Migration
         Schema::dropIfExists('failed_jobs');
     }
 };
+//-----------------Category-----------
+
+// //-----------Products--------

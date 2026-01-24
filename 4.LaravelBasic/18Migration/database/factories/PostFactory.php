@@ -22,5 +22,6 @@ class PostFactory extends Factory
             'title'=> fake()->sentence(),
             'body'=>fake()->sentence(10),
         ];
+        
     }
 }

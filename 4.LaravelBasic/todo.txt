@@ -1,0 +1,68 @@
+1.Tools
+    - XAMPP(PHP+MySQL+Apache)
+    - Composer Install
+    - laravel Hard
+
+2.Create Project
+    - composer create-project --prefer-dist laravel/laravel blog
+    - composer create-project "laravel/laravel:^12.0" First-App
+    - laravel new example-app
+
+3. Avoid npm install pmpm 
+
+4. Pnpm (nom install -g pnpm@latest-10)
+
+5. Setup or Resetup (composer install ->Vendor) (yarn /pnpm i --> node module , pnpm lock)
+
+6. Run php artisan serve
+
+
+---------------------Understanding Laravel---------------------------
+ - App_key (php artisan key:generate)
+
+ - Clear unnassaryFile (php artisan optimize:clear)
+
+ - For manage log files we use laravel telescope
+	
+	Installation
+	
+	- composer require laravel/telescope
+	
+	- php artisan telescope:install
+
+	- php artisan migrate
+
+ - Routes
+	- web.php
+	- console.php
+	- api.php (php artisan install:api)
+	- channels.php (php artisan install:broadcasting)
+
+ - Resource	
+	- css
+	- js (React+Vue)
+	-views(Blade Template Engine)
+
+
+ - Database
+
+	- migrations (php artisan make:migration create_products_table)(php artisan migrate)
+
+
+
+
+Meddalware --> Request and Response er majhkhane ja ghote ta hoilo Middleware 
+
+ - app
+	- initially missing Middleware (php artisan make:Middleware LoginCheckMiddleware)
+	- initially missing Exception (php artisan make:Exception MyException)
+	- initially missing Resource (php artisan make:Resource ProductResource)
+	- initially missing Request (php artisan make:Request ProductRequest)
+	- initially missing Mail (php artisan make:mail ProductOrderMail)
+	
+All need for further Development 
+
+
+
+
+

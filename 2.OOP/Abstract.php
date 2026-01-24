@@ -1,7 +1,7 @@
 <?php
-// Parent Class
+// Parent Class  
 abstract class Car {
-    public $name;
+    public $name; 
     public function __construct($name){
         $this->name = $name;
     }

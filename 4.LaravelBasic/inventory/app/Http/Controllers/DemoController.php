@@ -20,12 +20,12 @@ class DemoController extends Controller
 //        return DB::table('products')->sum('price');
 //        return DB::table('products')->select('name','price','description')->get();
             // return DB::table('products')->select('name','price')->distinct()->get();
-        
+
             // $q1 = DB::table('products')->where('price','>',50);
             // $q2 = DB::table('products')->where('tax','<',5);
             // $join = $q1->union($q2)->get();
             // return $join;
-            
+
             // return DB::table('products')->orderBy('price','desc')->get();
             // return DB::table('products')->orderBy('price','asc')->get();
             // return DB::table('products')->latest()->get();
@@ -71,16 +71,16 @@ class DemoController extends Controller
             //     ['name'=>'jhone doe',
             //     'description'=>'jhone doe is a good man . Always help the people' ],
 
-            
+
             // ]);
             // return DB::table('categories')->where('id','=',10)->update([
             //     'name'=>'hojoboroloos'
             // ]);
 
-        
+
         try{
             //Start Database Session-->Begin Transaction
-            //Success ->Commit 
+            //Success ->Commit
             //Fail ->Rollback
             //Timeout->Rollback
              DB::transaction(function(){
@@ -88,31 +88,31 @@ class DemoController extends Controller
                 DB::table('categories')->insert(['name'=>'Shujan','description'=>'Shujan is a good man . Always help the people ']);
                 DB::table('products')->insert(['name'=>'Shukchan','description'=>'Shukchan is a good man . Always help the people ']);
                 DB::table('products')->where('id','=',1)->delete();
-          
+
                 },10);
             }
             catch(Exception $e){
                 echo $e->getMessage();
             }
 
-            
-        
-
-        
 
 
 
 
 
 
-        
 
 
 
-        
 
 
- 
+
+
+
+
+
+
+
 
     }
 

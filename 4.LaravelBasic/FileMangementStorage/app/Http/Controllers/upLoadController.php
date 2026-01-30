@@ -10,19 +10,33 @@ class upLoadController extends Controller
         return view('upload');
     }
     public function handleUpload(Request $request){
-        // $request->validate([
-        //     'file'=>'required|file|max:2048'
-        // ]);
-
-        // $path = $request->file('file')->store('uploads');
+        $request->validate([
+            // 'file'=>['nullable','image','max:2048','mimes:jpeg,png,jpg,gif'] // max size in KB
+            'file'=>['required'] // max size in KB
+        ]);
+        // if($request->hasFile('file')){
+            // $path = $request->file('file')->store('uploads');
 
         // return back()->with('success', 'File uploaded successfully! Path: ' . $path);
-        $file=$request->file('file');
-        $name = $file->getClientOriginalName();
+        // $file=$request->file('file');
+        // $name = $file->getClientOriginalName();
         // $extension = $file->getClientOriginalExtension();
-        $newName = time().'_'.$name;
-        $UploadPath = $file->storeAs('uploads', $newName);
-        dd($UploadPath);
+        // $newName = time().'_'.$name;
+        // $UploadPath = $file->storeAs('uploads', $newName,['disk'=>'local']);
+        // dd($UploadPath);
         // return back()->with('success', 'File uploaded successfully! Name: ' . $name);
+        // }
+        // dd('No file uploaded');
+
+        if (request()->hasFile('file')){
+            $files = request()->file('file');
+            foreach($files as $file){
+                $file->store('uploads');
+            }
+            dd('Files uploaded successfully');
+
+        }
+        dd('No file uploaded');
+        
     }
 }

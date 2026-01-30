@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use \App\Models\Post;
 use \App\Models\Category;
@@ -16,14 +17,14 @@ Route::get('/categories', function () {
 });
 
 Route::get('/categories/{category}', function ($category) {
-   
+
     try{
         $CategoryData = Category::query()
             ->where('id','=',$category)
             ->orWhere('name','=',$category)
             ->firstOrFail();
 
-     
+
         return $CategoryData;
     }
     catch(Exception $e){
@@ -32,3 +33,4 @@ Route::get('/categories/{category}', function ($category) {
 
 
 });
+//Route::resource('posts', PostController::class);

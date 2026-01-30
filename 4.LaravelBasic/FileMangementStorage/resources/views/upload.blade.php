@@ -8,9 +8,18 @@
 </head>
 <body>
     <h1>Upload File</h1>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="{{ route('upload.handle') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="file" name="file" required>
+        <input type="file" name="file[]" multiple>
         <button type="submit">Upload</button>
     </form>
 </body>

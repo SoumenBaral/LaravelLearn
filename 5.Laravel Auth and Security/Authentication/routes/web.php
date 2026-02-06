@@ -8,6 +8,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('register',[RegisterController::class,'show']);
-Route::get('login',[LoginController::class,'show']);
-Route::get('dashboard',[DashbordController::class,'show']);
+Route::get('register',[RegisterController::class,'show'])
+    ->middleware('guest');
+Route::POST('register',[RegisterController::class,'store'])
+    ->name('register');
+Route::get('login',[LoginController::class,'show'])
+    ->name('login')->middleware('guest');
+Route::POST('login',[LoginController::class,'store'])
+    ->name('login');
+Route::get('dashboard',[DashbordController::class,'show'])
+    ->name('dashboard');

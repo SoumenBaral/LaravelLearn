@@ -17,4 +17,5 @@ Route::get('login',[LoginController::class,'show'])
 Route::POST('login',[LoginController::class,'store'])
     ->name('login');
 Route::get('dashboard',[DashbordController::class,'show'])
+    ->middleware('auth')
     ->name('dashboard');

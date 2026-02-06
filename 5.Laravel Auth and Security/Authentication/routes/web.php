@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashbordController;
+Use App\Http\Controllers\Auth\LogoutController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,3 +20,6 @@ Route::POST('login',[LoginController::class,'store'])
 Route::get('dashboard',[DashbordController::class,'show'])
     ->middleware('auth')
     ->name('dashboard');
+Route::POST('logout',[LogoutController::class,'logout'])
+    ->middleware('auth')
+    ->name('logout');

@@ -28,6 +28,11 @@ class RegisterController extends Controller
             'email' => $request->input('email'),
             'password' => ($request->input('password')),
         ]);
-        return redirect()->route('login');
+
+        // Auth::login($user);
+
+        auth()->login($user, true);
+
+        return redirect()->route('dashboard');
     }
 }
